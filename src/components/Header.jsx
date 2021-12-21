@@ -1,13 +1,10 @@
 import React from "react";
-import "./css/Header.css"
+import "./css/Header.css";
 
-export default function Header() {
+export const Header = () => {
   return (
     <div className="headerDiv">
-      <a href="/" className="header__links">Home</a>
-      <a href="/" className="header__links">Pokémons</a>
-      <a href="/" className="header__links">About</a>
-      <a href="https://pokeapi.co/" className="header__links">PokeAPI</a>
+      <h1>Pokédex React</h1>
     </div>
   );
-}
+};

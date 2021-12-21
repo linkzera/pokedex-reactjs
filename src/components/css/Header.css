@@ -1,11 +1,8 @@
-.headerDiv{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    background: black;
-}
-
-.headerDiv .header__links{
-    text-decoration: none;
-    color: white;
+.headerDiv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: black;
+  color: white;
+  font-size: 60px;
 }
