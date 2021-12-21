@@ -1,7 +1,3 @@
 .pokemao-name {
   text-transform: capitalize;
 }
-
-.container {
-  display: grid;
-}

@@ -1,23 +1,23 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
+
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { GetPokemons, GetPokemon } from "./getPokemon";
 
 import "./css/Card.css";
+import { Grid } from "@mui/material";
 
 export const Cards = () => {
   const [pokemons, setPokemons] = React.useState([]);
   if (!pokemons.length) GetPokemons(setPokemons);
   return (
-    <div className="container">
+    <Grid container spacing={2}>
       {pokemons?.map((pokemon) => {
         return <Cartinha url={pokemon?.url} key={pokemon?.url}></Cartinha>;
       })}
-    </div>
+    </Grid>
   );
 };
 
