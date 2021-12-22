@@ -25,7 +25,7 @@ const Cartinha = ({ url }) => {
   if (!pokemon) GetPokemon(setPokemon, url);
   
   return (
-    <Grid item sx={{ width: "200px" }}>
+    <Grid item sx={{ width: "200px", }}>
       <Card>
         <CardMedia
           sx={{ cursor: "pointer" }}
@@ -70,7 +70,6 @@ const ModalCard = ({pokemon}) =>{
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  console.log(pokemon?.abilities?.map(ability => console.log(ability)));
   return (
     <div >
       <Button onClick={handleOpen} variant="contained" color="secondary">abilities</Button>
@@ -91,8 +90,8 @@ const ModalCard = ({pokemon}) =>{
           <Typography id="modal-modal-title" variant="h6" component="h2" align="center">
             {pokemon?.name}
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }} >
-            {pokemon?.abilities?.map(ability => {return <div key={pokemon?.id}>{ability.slot}{" "}{ability.ability.name}</div>})}
+          <Typography id="modal-modal-description" sx={{ mt: 2 }} variant="div">
+            {pokemon?.abilities?.map((ability, index) => {return <section key={index}>{index+1}{" "}{ability.ability.name}</section>})}
           </Typography>
         </Box>
       </Modal>
