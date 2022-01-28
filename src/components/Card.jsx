@@ -23,16 +23,15 @@ export const Cards = () => {
 const Cartinha = ({ url }) => {
   const [pokemon, setPokemon] = React.useState();
   if (!pokemon) GetPokemon(setPokemon, url);
-  
+
   return (
-    <Grid item sx={{ width: "200px", }}>
+    <Grid item sx={{ width: "200px" }}>
       <Card>
         <CardMedia
           sx={{ cursor: "pointer" }}
           component="img"
           image={pokemon?.sprites?.front_default}
           alt={pokemon?.name}
-        
         />
         <CardContent>
           <Typography
@@ -45,34 +44,41 @@ const Cartinha = ({ url }) => {
           >
             {pokemon?.name}
           </Typography>
-          <ModalCard pokemon={pokemon}/>
+          <Grid item align="center">
+            <ModalCard pokemon={pokemon} />
+          </Grid>
         </CardContent>
-        
       </Card>
     </Grid>
   );
 };
 
 const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
   width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  borderRadius: "10px",
   boxShadow: 24,
   p: 4,
 };
 
-const ModalCard = ({pokemon}) =>{
-  
+const ModalCard = ({ pokemon }) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   return (
-    <div >
-      <Button onClick={handleOpen} variant="contained" color="secondary">abilities</Button>
+    <div>
+      <Button
+        onClick={handleOpen}
+        variant="contained"
+        sx={{ backgroundColor: "#ea5", color: "black" }}
+      >
+        abilities
+      </Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -80,21 +86,31 @@ const ModalCard = ({pokemon}) =>{
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-        <CardMedia
-          sx={{ cursor: "pointer" }}
-          component="img"
-          image={pokemon?.sprites?.front_default}
-          alt={pokemon?.name}
-        
-        />
-          <Typography id="modal-modal-title" variant="h6" component="h2" align="center">
+          <CardMedia
+            sx={{ cursor: "pointer" }}
+            component="img"
+            image={pokemon?.sprites?.front_default}
+            alt={pokemon?.name}
+          />
+          <Typography
+            id="modal-modal-title"
+            variant="h6"
+            component="h2"
+            align="center"
+          >
             {pokemon?.name}
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }} variant="div">
-            {pokemon?.abilities?.map((ability, index) => {return <section key={index}>{index+1}{" "}{ability.ability.name}</section>})}
+            {pokemon?.abilities?.map((ability, index) => {
+              return (
+                <section key={index}>
+                  {index + 1} {ability.ability.name}
+                </section>
+              );
+            })}
           </Typography>
         </Box>
       </Modal>
     </div>
   );
-}
+};

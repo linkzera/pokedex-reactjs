@@ -1,16 +1,14 @@
 import { CssBaseline } from "@mui/material";
 import React from "react";
 import { Cards } from "./components/Card";
-import { Header } from "./components/Header";
-import Paginations from "./components/Pagination";
+import  Header  from "./components/Header";
 
 function App() {
   return (
     <React.Fragment>
       <CssBaseline />
       <Header />
-      <Cards></Cards>
-      <Paginations />
+      <Cards/>
     </React.Fragment>
   );
 }
